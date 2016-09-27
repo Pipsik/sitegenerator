@@ -1,0 +1,20 @@
+<div ng-repeat="site in sites">
+  <div>
+    <a ng-show="site.name" href="#/posts/{{post.id}}">
+        <h2 class="post-title">
+           {{site.name}}
+        </h2>
+    </a>
+        <h3 ng-show="site.description">
+            {{site.description}}
+        </h3>
+    <!-- 
+    <p class="post-meta">Posted by <a ng-href="#/users/{{post.user.username}}">{{post.user.email}}</a> On {{post.created_at | date:format:mediumTime}}</p> -->
+  </div>
+  <hr>
+  <!-- <ul class="pager">
+    <li class="next">
+        <a href="#/posts/{{post.id}}">Show more &rarr;</a>
+    </li>
+</ul> -->
+</div>
