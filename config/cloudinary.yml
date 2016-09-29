@@ -1,0 +1,21 @@
+---
+development:
+  cloud_name: alexandrburyy
+  api_key: '928731327993856'
+  api_secret: "-Cz3CbhE6W9uEEhJU6hI15qlN5U"
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: alexandrburyy
+  api_key: '928731327993856'
+  api_secret: "-Cz3CbhE6W9uEEhJU6hI15qlN5U"
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: alexandrburyy
+  api_key: '928731327993856'
+  api_secret: "-Cz3CbhE6W9uEEhJU6hI15qlN5U"
+  enhance_image_tag: true
+  static_image_support: false
+
+  

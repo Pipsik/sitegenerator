@@ -7,6 +7,7 @@
     "angular-drag-and-drop-lists": "latest",
     "angular-froala": "latest",
     "angular-summernote": "latest",
-    "summernote": "latest"
+    "summernote": "latest",
+    "angular-image-crop": "latest"
   }
 }

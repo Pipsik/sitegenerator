@@ -11,6 +11,10 @@ angular
                 .state('create', {
                     url: '/create',
                     template: '<create-view></create-view>'
+                })
+                .state('profile', {
+                    url: '/profile',
+                    template: '<profile-view></profile-view>'
                 });
 
             $urlRouterProvider.otherwise('sites');

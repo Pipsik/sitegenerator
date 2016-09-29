@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users, :only => [:index, :destroy]
   root :to => 'sites#index'
   post '/return' => 'sites#create'
+  post '/image' => 'users#profile_photo'
   
 
 end

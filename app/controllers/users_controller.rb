@@ -2,9 +2,15 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   helper_method :resource_name, :resource, :devise_mapping
+  skip_before_action :verify_authenticity_token
 
   # GET /users
   # GET /users.json
+  def profile_photo
+    Cloudinary::Uploader.upload(params[:data])
+    render nothing: true
+  end
+
   def resource_name
     :user
   end
@@ -83,7 +89,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email,:username, :password, :password_confirmation, :remember_me)
-      params.require(:user).permit(:username, :provider, :url)
+      params.require(:user).permit(:email,:username, :data, :provider, :password, :password_confirmation, :remember_me)
     end
 end

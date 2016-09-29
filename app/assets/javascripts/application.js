@@ -23,6 +23,7 @@
 //= require angular-drag-and-drop-lists
 //= require angular-froala
 //= require froala-wysiwyg-editor
+//= require angular-image-crop
 
 
 // = require app.module
@@ -32,5 +33,7 @@
 // = require sites/site.module
 // = require sites/index/index.module
 // = require sites/create/create.module
+// = require users/user.module
+// = require users/profile/profile.module
 
 //= require_tree .
