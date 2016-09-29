@@ -19,11 +19,8 @@ component('createView', {
       $scope.models = {
           selected: null,
           templates: [
-              {type: "item", id: 2, itemUrl: "item"},
               {type: "container", id: 1, itemUrl: "container", columns: [[], []]},
-              {type: "text", id: 3, itemUrl:"hui"},
-              {type: "image", id: 4, itemUrl:"image"},
-              {type: "video", id: 5, itemUrl:"video"}
+              {type: "text", id: 2, itemUrl:"hui"}
           ],
           dropzones: {
 
