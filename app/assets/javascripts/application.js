@@ -18,6 +18,8 @@
 //= require angular-route/angular-route
 //= require angular-rails-templates
 //= require angular-drag-and-drop-lists
+//= require angular-froala
+//= require froala-wysiwyg-editor
 
 // = require app.module
 // = require app.config

@@ -3,9 +3,13 @@ angular.
     'site',
     'core',
 
-
     'dndLists',
     'ngRoute',
     'templates',
-    'ui.router'
-]);
+    'ui.router',
+    'froala'
+]).
+value('froalaConfig', {
+    toolbarInline: false,
+    placeholderText: 'Enter Text Here'
+});

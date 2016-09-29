@@ -21,75 +21,79 @@ component('createView', {
           templates: [
               {type: "item", id: 2, itemUrl: "item"},
               {type: "container", id: 1, itemUrl: "container", columns: [[], []]},
-              {type: "text", id: 3, itemUrl:"hui"}
+              {type: "text", id: 3, itemUrl:"hui"},
+              {type: "image", id: 4, itemUrl:"image"},
+              {type: "video", id: 5, itemUrl:"video"}
           ],
           dropzones: {
 
               "B": [
                   {
-                      "type": "item",
-                      "id": 7
-                  },
-                  {
-                      "type": "item",
-                      "id": "8"
-                  },
-                  {
                       "type": "container",
-                      "id": "2",
-                      "columns": [
-                          [
-                              {
-                                  "type": "item",
-                                  "id": "9"
-                              },
-                              {
-                                  "type": "item",
-                                  "id": "10"
-                              },
-                              {
-                                  "type": "item",
-                                  "id": "11"
-                              }
-                          ],
-                          [
-                              {
-                                  "type": "item",
-                                  "id": "12"
-                              },
-                              {
-                                  "type": "container",
-                                  "id": "3",
-                                  "columns": [
-                                      [
-                                          {
-                                              "type": "item",
-                                              "id": "13"
-                                          }
-                                      ],
-                                      [
-                                          {
-                                              "type": "item",
-                                              "id": "14"
-                                          }
-                                      ]
-                                  ]
-                              },
-                              {
-                                  "type": "item",
-                                  "id": "15"
-                              },
-                              {
-                                  "type": "item",
-                                  "id": "16"
-                              }
-                          ]
-                      ]
-                  },
-                  {
-                      "type": "item",
-                      "id": 16
+                      "id": "1",
+                      itemUrl: "container",
+                      columns : [[],[]]
                   }
+                  // {
+                  //     "type": "item",
+                  //     "id": "8"
+                  // },
+                  // {
+                  //     "type": "container",
+                  //     "id": "2",
+                  //     "columns": [
+                  //         [
+                  //             {
+                  //                 "type": "item",
+                  //                 "id": "9"
+                  //             },
+                  //             {
+                  //                 "type": "item",
+                  //                 "id": "10"
+                  //             },
+                  //             {
+                  //                 "type": "item",
+                  //                 "id": "11"
+                  //             }
+                  //         ],
+                  //         [
+                  //             {
+                  //                 "type": "item",
+                  //                 "id": "12"
+                  //             },
+                  //             {
+                  //                 "type": "container",
+                  //                 "id": "3",
+                  //                 "columns": [
+                  //                     [
+                  //                         {
+                  //                             "type": "item",
+                  //                             "id": "13"
+                  //                         }
+                  //                     ],
+                  //                     [
+                  //                         {
+                  //                             "type": "item",
+                  //                             "id": "14"
+                  //                         }
+                  //                     ]
+                  //                 ]
+                  //             },
+                  //             {
+                  //                 "type": "item",
+                  //                 "id": "15"
+                  //             },
+                  //             {
+                  //                 "type": "item",
+                  //                 "id": "16"
+                  //             }
+                  //         ]
+                  //     ]
+                  // },
+                  // {
+                  //     "type": "item",
+                  //     "id": 16
+                  // }
               ]
           }
       };

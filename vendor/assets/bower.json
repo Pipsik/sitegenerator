@@ -4,6 +4,7 @@
     "angular": "latest",
     "bootstrap-sass-official": "latest",
     "angular-route": "latest",
-    "angular-drag-and-drop-lists": "latest"
+    "angular-drag-and-drop-lists": "latest",
+    "angular-froala": "latest"
   }
 }
