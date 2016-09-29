@@ -34,66 +34,7 @@ component('createView', {
                       itemUrl: "container",
                       columns : [[],[]]
                   }
-                  // {
-                  //     "type": "item",
-                  //     "id": "8"
-                  // },
-                  // {
-                  //     "type": "container",
-                  //     "id": "2",
-                  //     "columns": [
-                  //         [
-                  //             {
-                  //                 "type": "item",
-                  //                 "id": "9"
-                  //             },
-                  //             {
-                  //                 "type": "item",
-                  //                 "id": "10"
-                  //             },
-                  //             {
-                  //                 "type": "item",
-                  //                 "id": "11"
-                  //             }
-                  //         ],
-                  //         [
-                  //             {
-                  //                 "type": "item",
-                  //                 "id": "12"
-                  //             },
-                  //             {
-                  //                 "type": "container",
-                  //                 "id": "3",
-                  //                 "columns": [
-                  //                     [
-                  //                         {
-                  //                             "type": "item",
-                  //                             "id": "13"
-                  //                         }
-                  //                     ],
-                  //                     [
-                  //                         {
-                  //                             "type": "item",
-                  //                             "id": "14"
-                  //                         }
-                  //                     ]
-                  //                 ]
-                  //             },
-                  //             {
-                  //                 "type": "item",
-                  //                 "id": "15"
-                  //             },
-                  //             {
-                  //                 "type": "item",
-                  //                 "id": "16"
-                  //             }
-                  //         ]
-                  //     ]
-                  // },
-                  // {
-                  //     "type": "item",
-                  //     "id": 16
-                  // }
+                  
               ]
           }
       };

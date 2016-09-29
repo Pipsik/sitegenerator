@@ -7,9 +7,5 @@ angular.
     'ngRoute',
     'templates',
     'ui.router',
-    'froala'
-]).
-value('froalaConfig', {
-    toolbarInline: false,
-    placeholderText: 'Enter Text Here'
-});
+    'summernote'
+]);

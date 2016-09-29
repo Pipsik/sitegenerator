@@ -5,6 +5,8 @@
     "bootstrap-sass-official": "latest",
     "angular-route": "latest",
     "angular-drag-and-drop-lists": "latest",
-    "angular-froala": "latest"
+    "angular-froala": "latest",
+    "angular-summernote": "latest",
+    "summernote": "latest"
   }
 }

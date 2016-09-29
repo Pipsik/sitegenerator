@@ -10,20 +10,23 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require angular/angular
 //= require angular-ui-router
 //= require angular-route/angular-route
+//= require summernote
+//= require angular-summernote
 //= require angular-rails-templates
 //= require angular-drag-and-drop-lists
 //= require angular-froala
 //= require froala-wysiwyg-editor
 
+
 // = require app.module
 // = require app.config
-
 // = require core/core.module
 // = require core/site/site.module
 // = require sites/site.module
