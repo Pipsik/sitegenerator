@@ -4,8 +4,9 @@ component('createView', {
   controller: [
   '$scope',
   'dataService',
+  '$compile',
 
-  function ($scope, dataService) {
+  function ($scope, dataService, $compile) {
     $scope.addSite = function(){
       var o = {
           name: $scope.name,
@@ -16,18 +17,28 @@ component('createView', {
       dataService.post('return', o).then(function(ob) { alert(ob);});
 
     }
+      $scope.currentId = 0;
+      $scope.tags = [];
+
+
+      $scope.addLink = function () {
+          var linkhtml = '<li><a href="#" ng-clcik="addLink()">Link</a></li>';
+          var temp = $compile(linkhtml)($scope);
+          angular.element(document.getElementById('link')).append(temp);
+
+      }
       $scope.models = {
           selected: null,
           templates: [
-              {type: "container", id: 1, itemUrl: "container", columns: [[], []]},
-              {type: "text", id: 2, itemUrl:"hui"}
+              {type: "container", id: 2, itemUrl: "container", columns: [[], []]},
+              {type: "text", id: 1, itemUrl:"hui", textModel: ""}
           ],
           dropzones: {
 
               "B": [
                   {
-                      "type": "container",
-                      "id": "1",
+                      type: "container",
+                      id: "1",
                       itemUrl: "container",
                       columns : [[],[]]
                   }
@@ -36,8 +47,10 @@ component('createView', {
           }
       };
       $scope.dropCallback = function(event, index, item, external, type, allowedType){
-          var result = document.getElementsByClassName("item ng-binding ng-scope");
-
+          //var result = document.getElementsByClassName("item ng-binding ng-scope");
+          //if(item.textId == 0) {
+          //    item.textId = ++$scope.currentId;
+          //}
           return item;
       }
 

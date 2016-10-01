@@ -1,20 +1,22 @@
-<div ng-repeat="site in sites">
-  <div>
-    <a ng-show="site.name" href="#/posts/{{post.id}}">
-        <h2 class="post-title">
-           {{site.name}}
-        </h2>
-    </a>
-        <h3 ng-show="site.description">
-            {{site.description}}
-        </h3>
-    <!-- 
-    <p class="post-meta">Posted by <a ng-href="#/users/{{post.user.username}}">{{post.user.email}}</a> On {{post.created_at | date:format:mediumTime}}</p> -->
+
+  <div class="container">
+     <table class="table table-striped">
+         <thead>
+             <tr>
+                 <th>Site Name</th>
+                 <th>Description</th>
+                 <th>tags</th>
+             </tr>
+         </thead>
+         <tbody>
+            <tr dir-paginate="site in sites | itemsPerPage: 5">
+                <td ng-show="site.name">{{site.name}}</td>
+                <td ng-show="site.description">{{site.description}}</td>
+                <td><span ng-repeat="tag in site.tags">{{tag.text}} </span></td>
+
+            </tr>
+            </tr>
+         </tbody>
+     </table>
+      <dir-pagination-controls></dir-pagination-controls>
   </div>
-  <hr>
-  <!-- <ul class="pager">
-    <li class="next">
-        <a href="#/posts/{{post.id}}">Show more &rarr;</a>
-    </li>
-</ul> -->
-</div>

@@ -9,5 +9,7 @@ angular.
     'templates',
     'ui.router',
     'summernote',
-    'ImageCropper'
+    'ImageCropper',
+    'ngTagsInput',
+    'angularUtils.directives.dirPagination'
 ]);

@@ -11,17 +11,15 @@ class SitesController < InheritedResources::Base
 	end
 
   def create
-    @data = Site.create(site_params)
+    @data = Site.new(site_params.merge(user_id: current_user.id))
     @data.save
     respond_with(@data)
   end
 
-	
-
   private
 
     def site_params
-      params.require(:site).permit(:name, :description, :tags)
+      params.require(:site).permit(:name, :description, tags:[:text, :tag])
     end
 end
 

@@ -17,13 +17,14 @@
 //= require angular/angular
 //= require angular-ui-router
 //= require angular-route/angular-route
-//= require summernote
 //= require angular-summernote
 //= require angular-rails-templates
 //= require angular-drag-and-drop-lists
-//= require angular-froala
-//= require froala-wysiwyg-editor
 //= require angular-image-crop
+//= require ng-tags-input
+//= require summernote
+//= require angular-utils-pagination
+
 
 
 // = require app.module

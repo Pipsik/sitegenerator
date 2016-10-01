@@ -10,6 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
 
+ *= require ng-tags-input
  *= require summernote
  *= require_self
  *= require_tree .
@@ -31,10 +32,7 @@ ul{
  * The dnd-list should always have a min-height,
  * otherwise you can't drop to it once it's empty
  */
-body {
-    padding-top: 70px;
-    padding-bottom: 30px;
-}
+
 
 .box {
     margin-bottom: 20px;
@@ -103,7 +101,7 @@ body {
 }
 
 .nestedDemo .dropzone ul[dnd-list] {
-    min-height: 42px;
+    min-height: 300px;
     margin: 0px;
     padding-left: 0px;
 }

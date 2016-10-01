@@ -4626,7 +4626,7 @@
      * attach Drag and Drop Events
      */
     this.initialize = function () {
-      if (options.disableDragAndDrop) {
+      if (!options.disableDragAndDrop) {
         // prevent default drop event
         documentEventHandlers.onDrop = function (e) {
           e.preventDefault();
@@ -6370,6 +6370,7 @@
       }
 
       $video.addClass('note-video-clip');
+      $video = $video.wrap('<div class="embed-responsive embed-responsive-16by9">').parent();
 
       return $video[0];
     };

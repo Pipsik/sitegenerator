@@ -5,9 +5,10 @@
     "bootstrap-sass-official": "latest",
     "angular-route": "latest",
     "angular-drag-and-drop-lists": "latest",
-    "angular-froala": "latest",
     "angular-summernote": "latest",
     "summernote": "latest",
-    "angular-image-crop": "latest"
+    "angular-image-crop": "latest",
+    "ng-tags-input": "latest",
+    "angular-utils-pagination": "latest"
   }
 }

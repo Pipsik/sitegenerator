@@ -7,7 +7,8 @@ angular.
             'dataService',
             function ($scope, dataService) {
                 dataService.get('/sites.json').then(function(sites){
-                    $scope.sites = sites.data
+                    $scope.sites = sites.data;
+
                 })
             }
         ]
