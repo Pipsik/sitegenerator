@@ -6,6 +6,8 @@
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
     %title= content_for?(:title) ? yield(:title) : "Autorization"
     = csrf_meta_tags
+    %script
+      user_id = "#{current_user.id if current_user}"
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
     / Le HTML5 shim, for IE6-8 support of HTML elements
@@ -31,11 +33,11 @@
               %a.dropdown-toggle{"data-toggle" => "dropdown", href: "/"}
                 Information
                 %b.caret
-              %ul.dropdown-menu
+              %ul.dropdown-menu{"ng-controller": "syka"}
                 %li
-                  %a{href: '#/profile'} My profile
+                  %a{'ng-href'=> '#/{{userId}}/profile'} My profile
                 %li
-                  %a{href: '#/create'} Create site
+                  %a{'ng-href'=> '#/{{userId}}/create'} Create site
                 %li= link_to "Logout", destroy_user_session_path, :method => :delete
         %form.navbar-form.navbar-left{role: "search"}
           .form-group

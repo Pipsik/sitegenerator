@@ -9,11 +9,11 @@ angular
                     template: '<sites-view></sites-view>'
                 })
                 .state('create', {
-                    url: '/create',
+                    url: '/{id}/create',
                     template: '<create-view></create-view>'
                 })
                 .state('profile', {
-                    url: '/profile',
+                    url: '/{id}/profile',
                     template: '<profile-view></profile-view>'
                 });
 
