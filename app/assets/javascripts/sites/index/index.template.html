@@ -8,14 +8,21 @@
                  <th>tags</th>
              </tr>
          </thead>
-         <tbody>
+         <tbody ng-show="sites">
             <tr dir-paginate="site in sites | itemsPerPage: 5">
                 <td ng-show="site.name">{{site.name}}</td>
                 <td ng-show="site.description">{{site.description}}</td>
                 <td><span ng-repeat="tag in site.tags">{{tag.text}} </span></td>
 
             </tr>
-            </tr>
+         </tbody>
+         <tbody ng-show="foundSites">
+         <tr dir-paginate="foundSite in foundSites | itemsPerPage: 5">
+             <td ng-show="foundSite._id">{{foundSite._id}}</td>
+             <td ng-show="foundSite._source.description">{{foundSite._source.description}}</td>
+             <td><span ng-repeat="tag in foundSite._source.tags">{{tag.text}} </span></td>
+
+         </tr>
          </tbody>
      </table>
       <dir-pagination-controls></dir-pagination-controls>

@@ -8,13 +8,23 @@ angular.
             function ($scope, dataService) {
                 dataService.get('/sites.json').then(function(sites){
                     $scope.sites = sites.data;
-                    $scope.UserId = user_id;
-                    console.log(user_id);
+                    console.log($scope.sites);
+
 
                 })
             }
         ]
-}).controller('syka',['$scope', function ($scope) {
+}).controller('syka',['$scope','dataService', function ($scope, dataService) {
     $scope.userId = user_id;
-    console.log($scope.UserId);
+    var inf = {
+        searchstr: $scope.val
+    };
+
+    $scope.searchSite = function () {
+        dataService.post('/search', inf).then(function(obj){
+            $scope.foundSites = obj.data;
+            console.log($scope.foundSites);
+            console.log(inf);
+        })
+    }
 }]);

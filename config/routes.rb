@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   root :to => 'sites#index'
   post '/return' => 'sites#create'
   post '/image' => 'users#profile_photo'
+  post '/search' => 'sites#search_data'
   
 
 end

@@ -16,6 +16,11 @@ class SitesController < InheritedResources::Base
     respond_with(@data)
   end
 
+  def search_data
+    @srchstr= Site.__elasticsearch__.search(params[:searchstr]).results.to_json
+    render :json => @srchstr
+  end
+
   private
 
     def site_params

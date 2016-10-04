@@ -39,10 +39,10 @@
                 %li
                   %a{'ng-href'=> '#/{{userId}}/create'} Create site
                 %li= link_to "Logout", destroy_user_session_path, :method => :delete
-        %form.navbar-form.navbar-left{role: "search"}
+        %form.navbar-form.navbar-left{role: "search", "ng-controller": "syka"}
           .form-group
-            %input.form-control{placeholder: "Search", type: "text"}/
-          %button.btn.btn-default{type: "submit"} Submit
+            %input.form-control{placeholder: "Search", "ng-model": "val"}
+          %button.btn.btn-default{type: "button", "ng-click":"searchSite()"} Submit
         %ul.nav.navbar-nav.navbar
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}

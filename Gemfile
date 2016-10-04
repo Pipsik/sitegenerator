@@ -43,6 +43,8 @@ gem "selenium-webdriver"
 gem "capybara"
 gem 'bower-rails'
 gem 'angular-ui-router-rails'
+gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+gem 'elasticsearch-rails'
 group :development, :test do
 gem 'angular-rails-templates'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

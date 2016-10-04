@@ -12,6 +12,10 @@ angular
                     url: '/{id}/create',
                     template: '<create-view></create-view>'
                 })
+                .state('search', {
+                    url: '/search',
+                    template: '<search-view></search-view>'
+                })
                 .state('profile', {
                     url: '/{id}/profile',
                     template: '<profile-view></profile-view>'
