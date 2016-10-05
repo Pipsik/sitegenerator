@@ -47,6 +47,7 @@ gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-ra
 gem 'elasticsearch-rails'
 group :development, :test do
 gem 'angular-rails-templates'
+gem 'pry'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem "rspec-rails", "~> 2.0"

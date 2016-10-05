@@ -14,19 +14,58 @@ component('createView', {
           tags: $scope.tags
       };
 
-      dataService.post('return', o).then(function(ob) { alert(ob);});
+      dataService.post('return', o).then(function(obj) {
+           $scope.siteId = obj.data.id;
+      });
 
-    }
+    };
+
       $scope.currentId = 0;
       $scope.tags = [];
+      $scope.nameLink='Home';
 
-
+      var i =1 ;
       $scope.addLink = function () {
-          var linkhtml = '<li><a href="#" ng-clcik="addLink()">Link</a></li>';
-          var temp = $compile(linkhtml)($scope);
-          angular.element(document.getElementById('link')).append(temp);
 
-      }
+          $scope.nameLink ="link" + i++;
+          $scope.links.push({text: $scope.nameLink});
+
+          $scope.models.dropzones = {
+
+              "B": [
+                  {
+                      type: "container",
+                      id: "1",
+                      itemUrl: "container",
+                      columns : [[],[]]
+                  }
+
+              ]
+          };
+      };
+
+      $scope.savePage =function(){
+          var model ={
+              content: $scope.modelAsJson,
+              siteId: $scope.siteId,
+              title: $scope.nameLink
+          };
+          dataService.post('/postmodel', model).then(function(ob){alert(ob);});
+          console.log(model);
+      };
+
+      $scope.changePage = function(link){
+          var index =$scope.links.indexOf(link)+1;
+          dataService.get('/sites/'+$scope.siteId +'/pages/'+index+'.json').then(function (page) {
+              $scope.currPage = page.data;
+          });
+          console.log(index);
+          console.log($scope.currPage);
+
+
+      };
+
+      $scope.links=[{text: $scope.nameLink}];
       $scope.models = {
           selected: null,
           templates: [
@@ -40,17 +79,13 @@ component('createView', {
                       type: "container",
                       id: "1",
                       itemUrl: "container",
-                      columns : [[],[]]
+                      columns : [[[]],[]]
                   }
                   
               ]
           }
       };
       $scope.dropCallback = function(event, index, item, external, type, allowedType){
-          //var result = document.getElementsByClassName("item ng-binding ng-scope");
-          //if(item.textId == 0) {
-          //    item.textId = ++$scope.currentId;
-          //}
           return item;
       }
 

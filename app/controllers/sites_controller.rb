@@ -10,10 +10,17 @@ class SitesController < InheritedResources::Base
     end
 	end
 
+  def show
+    @site = Site.find(params[:id])
+    respond_to do |format|
+      format.json { render :json => @site.to_json}
+    end
+  end
+
   def create
-    @data = Site.new(site_params.merge(user_id: current_user.id))
-    @data.save
-    respond_with(@data)
+    @site = Site.new(site_params.merge(user_id: current_user.id))
+    @site.save
+    render json: @site
   end
 
   def search_data
