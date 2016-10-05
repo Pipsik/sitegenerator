@@ -12,4 +12,6 @@ angular.
     'ImageCropper',
     'ngTagsInput',
     'angularUtils.directives.dirPagination'
-]);
+]).factory('Search',function(){
+   return {text: ''}
+});

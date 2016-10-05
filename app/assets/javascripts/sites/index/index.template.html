@@ -1,27 +1,25 @@
-
-  <div class="container">
-     <table class="table table-striped">
+ <div class="container">
+     <table class="table table-striped" >
          <thead>
              <tr>
                  <th>Site Name</th>
                  <th>Description</th>
-                 <th>tags</th>
+                 <th>User</th>
              </tr>
          </thead>
-         <tbody ng-show="sites">
+         <tbody ng-hide="searchFromService.search != null">
             <tr dir-paginate="site in sites | itemsPerPage: 5">
                 <td ng-show="site.name">{{site.name}}</td>
                 <td ng-show="site.description">{{site.description}}</td>
-                <td><span ng-repeat="tag in site.tags">{{tag.text}} </span></td>
+                <td ng-show="site.user_id">{{site.user_id}}</td>
 
             </tr>
          </tbody>
-         <tbody ng-show="foundSites">
-         <tr dir-paginate="foundSite in foundSites | itemsPerPage: 5">
-             <td ng-show="foundSite._id">{{foundSite._id}}</td>
-             <td ng-show="foundSite._source.description">{{foundSite._source.description}}</td>
-             <td><span ng-repeat="tag in foundSite._source.tags">{{tag.text}} </span></td>
-
+         <tbody ng-show="searchFromService.search != null">
+         <tr dir-paginate="searchFromService in searchFromService.search | itemsPerPage: 5">
+             <td>{{searchFromService._source.name}}</td>
+             <td>{{searchFromService._source.description}}</td>
+             <td>{{searchFromService._source.user_id}}</td>
          </tr>
          </tbody>
      </table>

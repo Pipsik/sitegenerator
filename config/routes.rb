@@ -11,7 +11,5 @@ Rails.application.routes.draw do
   post '/return' => 'sites#create'
   post '/image' => 'users#profile_photo'
   post '/search' => 'sites#search_data'
-  
-
 end
 

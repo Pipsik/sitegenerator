@@ -1,3 +1,6 @@
+var output = null;
+
+
 angular.
     module('site.index').
     component('sitesView', {
@@ -5,26 +8,33 @@ angular.
         controller: [
             '$scope',
             'dataService',
-            function ($scope, dataService) {
+            'Search',
+            function ($scope, dataService, Search) {
                 dataService.get('/sites.json').then(function(sites){
                     $scope.sites = sites.data;
-                    console.log($scope.sites);
+                    $scope.searchFromService=Search;
+
+
 
 
                 })
             }
         ]
-}).controller('syka',['$scope','dataService', function ($scope, dataService) {
+}).controller('syka',function ($scope, dataService, Search) {
     $scope.userId = user_id;
-    var inf = {
-        searchstr: $scope.val
-    };
-
+    $scope.search = Search;
     $scope.searchSite = function () {
+        var inf = {
+            searchstr: $scope.search
+        };
         dataService.post('/search', inf).then(function(obj){
-            $scope.foundSites = obj.data;
-            console.log($scope.foundSites);
-            console.log(inf);
-        })
+            Search.search = obj.data;
+            console.log(Search.search);
+        });
     }
-}]);
+}).controller('restart',function($route,$window, $scope){
+    $scope.restartPage = function () {
+        $window.location.href = '/';
+    }
+});
+

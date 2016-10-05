@@ -16,7 +16,7 @@
 
   %body{"ng-app": "Generator"}
     %nav.navbar.navbar-inverse{role: "navigation"}
-      %a.navbar-brand{href: "/"} Site Generator
+      %a.navbar-brand{href: "#/",'ng-click':'restartPage()', "ng-controller":"restart"} Site Generator
       .collapse.navbar-collapse.navbar-ex1-collapse
         %ul.nav.navbar-nav
           - if !user_signed_in?
@@ -41,8 +41,8 @@
                 %li= link_to "Logout", destroy_user_session_path, :method => :delete
         %form.navbar-form.navbar-left{role: "search", "ng-controller": "syka"}
           .form-group
-            %input.form-control{placeholder: "Search", "ng-model": "val"}
-          %button.btn.btn-default{type: "button", "ng-click":"searchSite()"} Submit
+            %input.form-control{placeholder: "Search", type:"text", 'ng-model': "search.text"}
+          %a.btn.btn-default{type: "button","ng-click":"searchSite();", 'ng-href'=> '#/sites'} Submit
         %ul.nav.navbar-nav.navbar
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}

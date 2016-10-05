@@ -34,7 +34,6 @@
 // = require sites/site.module
 // = require sites/index/index.module
 // = require sites/create/create.module
-// = require sites/search/search.module
 // = require users/user.module
 // = require users/profile/profile.module
 
