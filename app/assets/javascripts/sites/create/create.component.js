@@ -15,16 +15,35 @@ component('createView', {
       };
 
       dataService.post('return', o).then(function(obj) {
-           $scope.siteId = obj.data.id;
+           $scope.site_id = obj.data.id;
+            console.log($scope.site_id);
       });
 
     };
+      $scope.models = {
+          selected: null,
+          templates: [
+              {type: "container", id: 2, itemUrl: "container", columns: [[], []]},
+              {type: "text", id: 1, itemUrl:"hui", textModel: ""}
+          ],
+          dropzones: {
 
+              "B": [
+                  {
+                      type: "container",
+                      id: "1",
+                      itemUrl: "container",
+                      columns : [[],[]]
+                  }
+
+              ]
+          }
+      };
       $scope.currentId = 0;
       $scope.tags = [];
       $scope.nameLink='Home';
-
-      var i =1 ;
+      $scope.links=[{text: $scope.nameLink}];
+      var i = 1;
       $scope.addLink = function () {
 
           $scope.nameLink ="link" + i++;
@@ -42,55 +61,37 @@ component('createView', {
 
               ]
           };
-      };
+       };
 
       $scope.savePage =function(){
-          var model ={
+          var mod ={
               content: $scope.modelAsJson,
-              siteId: $scope.siteId,
+              site_id: $scope.site_id,
               title: $scope.nameLink
           };
-          dataService.post('/postmodel', model).then(function(ob){alert(ob);});
-          console.log(model);
+          dataService.post('/postmodel', mod).then(function(ob){alert(ob);});
+
       };
 
-      $scope.changePage = function(link){
-          var index =$scope.links.indexOf(link)+1;
-          dataService.get('/sites/'+$scope.siteId +'/pages/'+index+'.json').then(function (page) {
-              $scope.currPage = page.data;
+      $scope.changePage = function(link) {
+          var index = $scope.links.indexOf(link);
+          dataService.get('/site/' + $scope.site_id + '/pages/').then(function (hui) {
+              console.log(hui.data);
+              $scope.models.dropzones = angular.fromJson(hui.data[index].content);
           });
-          console.log(index);
-          console.log($scope.currPage);
+           // $scope.modelAsJson = $scope.currPage;
 
-
+            // console.log($scope.modelAsJson);
       };
 
-      $scope.links=[{text: $scope.nameLink}];
-      $scope.models = {
-          selected: null,
-          templates: [
-              {type: "container", id: 2, itemUrl: "container", columns: [[], []]},
-              {type: "text", id: 1, itemUrl:"hui", textModel: ""}
-          ],
-          dropzones: {
 
-              "B": [
-                  {
-                      type: "container",
-                      id: "1",
-                      itemUrl: "container",
-                      columns : [[[]],[]]
-                  }
-                  
-              ]
-          }
-      };
+
       $scope.dropCallback = function(event, index, item, external, type, allowedType){
           return item;
       }
 
       $scope.$watch('models.dropzones', function(model) {
-          $scope.modelAsJson = angular.toJson(model, true);
+          $scope.modelAsJson = angular.toJson(model, false);
       }, true);
   }]
 });

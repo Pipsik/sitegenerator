@@ -6,7 +6,7 @@ class Site < ActiveRecord::Base
 
 	serialize :tags, Array
 	belongs_to :user
-	has_many :pages, foreign_key: "siteId"
+	has_many :pages
 
 
 	index_name Rails.application.class.parent_name.underscore

@@ -25,7 +25,13 @@ class SitesController < InheritedResources::Base
 
   def search_data
     @srchstr= Site.__elasticsearch__.search(params[:searchstr][:text]).results.to_json
-    render :json => @srchstr
+    render json: @srchstr
+  end
+
+  def pages
+    @site =Site.find(params[:id])
+    @pages = @site.pages
+    render json: @pages
   end
 
   private

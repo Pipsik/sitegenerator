@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160926091036) do
+ActiveRecord::Schema.define(version: 20161006005034) do
 
   create_table "achivements", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -65,10 +65,10 @@ ActiveRecord::Schema.define(version: 20160926091036) do
 
   create_table "pages", force: :cascade do |t|
     t.text     "title",      limit: 65535
-    t.integer  "siteId",     limit: 4
     t.text     "content",    limit: 65535
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.integer  "site_id",    limit: 4
   end
 
   create_table "sites", force: :cascade do |t|
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 20160926091036) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
+    t.string   "role",                   limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

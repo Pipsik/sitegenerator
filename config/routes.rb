@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   resources :achivements
-  resources :sites do
-    resources :pages
-  end
+  resources :sites
+  resources :pages
 
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -15,5 +14,6 @@ Rails.application.routes.draw do
   post '/image' => 'users#profile_photo'
   post '/search' => 'sites#search_data'
   post '/postmodel' => 'pages#create'
+  get '/site/:id/pages' => 'sites#pages'
 end
 
