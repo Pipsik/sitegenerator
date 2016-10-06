@@ -29,10 +29,11 @@ class SitesController < InheritedResources::Base
   end
 
   def pages
-    @site =Site.find(params[:id])
+    @site = Site.find(params[:id])
     @pages = @site.pages
     render json: @pages
   end
+
 
   private
 

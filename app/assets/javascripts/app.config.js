@@ -19,6 +19,10 @@ angular
                 .state('profile', {
                     url: '/{id}/profile',
                     template: '<profile-view></profile-view>'
+                })
+                .state('show',{
+                    url: '/show/{id}',
+                    template: '<show-view></show-view>'
                 });
 
             $urlRouterProvider.otherwise('sites');

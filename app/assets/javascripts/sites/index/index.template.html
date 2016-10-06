@@ -9,7 +9,7 @@
          </thead>
          <tbody ng-hide="searchFromService.search != null">
             <tr dir-paginate="site in sites | itemsPerPage: 5">
-                <td ng-show="site.name">{{site.name}}</td>
+                <td ng-show="site.name"><a href="#/show/{{site.id}}">{{site.name}}</a></td>
                 <td ng-show="site.description">{{site.description}}</td>
                 <td ng-show="site.user_id">{{site.user_id}}</td>
 
@@ -17,7 +17,7 @@
          </tbody>
          <tbody ng-show="searchFromService.search != null">
          <tr dir-paginate="searchFromService in searchFromService.search | itemsPerPage: 5">
-             <td>{{searchFromService._source.name}}</td>
+             <td><a href="#/show/{{searchFromService._source.id}}">{{searchFromService._source.name}}</a></td>
              <td>{{searchFromService._source.description}}</td>
              <td>{{searchFromService._source.user_id}}</td>
          </tr>

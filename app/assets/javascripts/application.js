@@ -26,7 +26,6 @@
 //= require angular-utils-pagination
 
 
-
 // = require app.module
 // = require app.config
 // = require core/core.module
@@ -36,5 +35,6 @@
 // = require sites/create/create.module
 // = require users/user.module
 // = require users/profile/profile.module
+// = require sites/show/show.module
 
 //= require_tree .

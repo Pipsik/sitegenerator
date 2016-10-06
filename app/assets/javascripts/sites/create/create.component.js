@@ -75,13 +75,14 @@ component('createView', {
 
       $scope.changePage = function(link) {
           var index = $scope.links.indexOf(link);
-          dataService.get('/site/' + $scope.site_id + '/pages/').then(function (hui) {
+          console.log(index);
+          $scope.nameLink = $scope.links[index].text;
+          console.log($scope.nameLink);
+          dataService.get('/site/' + $scope.site_id + '/pages').then(function (hui) {
               console.log(hui.data);
+              console.log(hui);
               $scope.models.dropzones = angular.fromJson(hui.data[index].content);
           });
-           // $scope.modelAsJson = $scope.currPage;
-
-            // console.log($scope.modelAsJson);
       };
 
 

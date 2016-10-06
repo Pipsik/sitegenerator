@@ -7,20 +7,26 @@ class PagesController < InheritedResources::Base
   end
 
   def create
-    page = Page.new(page_params.merge(site_id: params[:site_id]))
-    page.save
+    page = Page.where(:title => params[:title], :site_id => params[:site_id]).first_or_create do |page|
+      page.site_id = params[:site_id]
+      page.content = params[:content]
+      page.title = params[:title]
+    end
+    page.update_attributes(:content => params[:content])
+    p page
    render nothing: true
   end
 
 
   def show
     send = Page.find_by(params[:site_id])
-    p send
     render json: send
   end
+
   private
 
   def page_params
     params.require(:page).permit(:title, :content, :site_id)
   end
+
 end

@@ -1,6 +1,7 @@
 require 'elasticsearch/model'
 
 class Site < ActiveRecord::Base
+	validates :name, :description, :tags , :presence => true
 	include Elasticsearch::Model
 	include Elasticsearch::Model::Callbacks
 
