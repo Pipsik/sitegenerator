@@ -11,7 +11,8 @@ angular.
     'summernote',
     'ImageCropper',
     'ngTagsInput',
-    'angularUtils.directives.dirPagination'
+    'angularUtils.directives.dirPagination',
+    'ngSanitize'
 ]).factory('Search',function(){
    return {text: ''}
 });

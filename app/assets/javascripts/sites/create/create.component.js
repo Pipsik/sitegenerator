@@ -28,7 +28,7 @@ component('createView', {
           ],
           dropzones: {
 
-              "B": [
+              "modeling": [
                   {
                       type: "container",
                       id: "1",
@@ -44,6 +44,7 @@ component('createView', {
       $scope.nameLink='Home';
       $scope.links=[{text: $scope.nameLink}];
       var i = 1;
+
       $scope.addLink = function () {
 
           $scope.nameLink ="link" + i++;
@@ -51,7 +52,7 @@ component('createView', {
 
           $scope.models.dropzones = {
 
-              "B": [
+              "modeling": [
                   {
                       type: "container",
                       id: "1",
@@ -75,13 +76,10 @@ component('createView', {
 
       $scope.changePage = function(link) {
           var index = $scope.links.indexOf(link);
-          console.log(index);
           $scope.nameLink = $scope.links[index].text;
           console.log($scope.nameLink);
-          dataService.get('/site/' + $scope.site_id + '/pages').then(function (hui) {
-              console.log(hui.data);
-              console.log(hui);
-              $scope.models.dropzones = angular.fromJson(hui.data[index].content);
+          dataService.get('/site/' + $scope.site_id + '/pages').then(function (obj) {
+              $scope.models.dropzones = angular.fromJson(obj.data[index].content);
           });
       };
 

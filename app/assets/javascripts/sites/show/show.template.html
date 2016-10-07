@@ -8,13 +8,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">{{name}}</a>
+                <a class="navbar-brand">{{SiteName}}</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav" >
-                    <li ng-repeat="link in links"><a ng-click="changePage(link)">{{link.text}}</a></li>
+                    <li ng-repeat="obj in SiteData"><a class="header" ng-click="hui(obj.content)" ng-disabled="isActive()">{{obj.title}}</a></li>
                 </ul>
             </div>
         </div>
     </nav>
+</div>
+<div ng-bind-html="myHtmlicnlude" id="JijaFaggot">
+
 </div>

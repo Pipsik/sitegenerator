@@ -12,9 +12,7 @@ class SitesController < InheritedResources::Base
 
   def show
     @site = Site.find(params[:id])
-    respond_to do |format|
-      format.json { render :json => @site.to_json}
-    end
+    render :json => @site.to_json
   end
 
   def create

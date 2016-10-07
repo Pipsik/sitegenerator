@@ -9,6 +9,7 @@
     "summernote": "latest",
     "angular-image-crop": "latest",
     "ng-tags-input": "latest",
-    "angular-utils-pagination": "latest"
+    "angular-utils-pagination": "latest",
+    "angular-sanitize": "latest"
   }
 }

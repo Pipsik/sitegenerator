@@ -19,9 +19,16 @@ class PagesController < InheritedResources::Base
 
 
   def show
-    send = Page.find_by(params[:site_id])
-    render json: send
+    @send = Page.find_by(params[:site_id])
+    @comments = @send.comments
+    render :json => {:page => @send, :comments => @comments}
   end
+  #
+  # def comments
+  #   @page = Site.find(params[:id])
+  #   @pages = @site.pages
+  #   render json: @pages
+  # end
 
   private
 

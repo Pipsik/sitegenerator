@@ -24,7 +24,7 @@
 //= require ng-tags-input
 //= require summernote
 //= require angular-utils-pagination
-
+//= require angular-sanitize
 
 // = require app.module
 // = require app.config

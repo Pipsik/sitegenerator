@@ -10,6 +10,7 @@ class Site < ActiveRecord::Base
 	has_many :pages
 
 
+
 	index_name Rails.application.class.parent_name.underscore
 	document_type self.name.downcase
 end
