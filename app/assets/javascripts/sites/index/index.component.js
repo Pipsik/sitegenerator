@@ -16,6 +16,7 @@ angular.
                     $scope.searchFromService=Search;
 
                 });
+                console.log($scope.raiting);
             }
         ]
 }).controller('syka',function ($scope, dataService, Search) {

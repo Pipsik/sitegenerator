@@ -25,6 +25,7 @@
 //= require summernote
 //= require angular-utils-pagination
 //= require angular-sanitize
+//= require angular-input-stars
 
 // = require app.module
 // = require app.config
@@ -36,5 +37,6 @@
 // = require users/user.module
 // = require users/profile/profile.module
 // = require sites/show/show.module
+// = require sites/edit/edit.module
 
 //= require_tree .

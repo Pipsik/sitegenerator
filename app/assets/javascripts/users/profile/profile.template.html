@@ -33,6 +33,7 @@
                             <th>Title</th>
                             <th>Edit date</th>
                             <th>Create date</th>
+                            <th>Raiting</th>
                             <th ng-if="user.id == user.sessionId && user.id != null">Management</th>
                         </tr>
                         </thead>
@@ -41,8 +42,9 @@
                             <td>{{site.name}}</td>
                             <td>{{site.description}}</td>
                             <td>{{site.created_at}}</td>
+                            <td><input-stars max="5" ng-model="raiting"></td>
                             <td>
-                                <a href="#" class="btn btn-success ">Edit</a>
+                                <a href="#/edit/{{site.id}}" class="btn btn-success ">Edit</a>
                                 <a ng-click="deleteSite(site.id)" class="btn btn-danger ">Delete</a>
                             </td>
                         </tr>

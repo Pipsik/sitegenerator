@@ -39,7 +39,7 @@ component('createView', {
               ]
           }
       };
-      $scope.currentId = 0;
+      // $scope.currentId = 0;
       $scope.tags = [];
       $scope.nameLink='Home';
       $scope.links=[{text: $scope.nameLink}];
@@ -87,7 +87,7 @@ component('createView', {
 
       $scope.dropCallback = function(event, index, item, external, type, allowedType){
           return item;
-      }
+      };
 
       $scope.$watch('models.dropzones', function(model) {
           $scope.modelAsJson = angular.toJson(model, false);

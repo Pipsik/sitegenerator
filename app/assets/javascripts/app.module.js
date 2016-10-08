@@ -12,7 +12,8 @@ angular.
     'ImageCropper',
     'ngTagsInput',
     'angularUtils.directives.dirPagination',
-    'ngSanitize'
+    'ngSanitize',
+    'angular-input-stars'
 ]).factory('Search',function(){
    return {text: ''}
 });

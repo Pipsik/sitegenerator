@@ -1,5 +1,6 @@
 angular.module('site',[
     'site.index',
     'site.create',
-    'site.show'
+    'site.show',
+    'site.edit'
 ]);

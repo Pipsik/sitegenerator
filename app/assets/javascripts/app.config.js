@@ -24,6 +24,11 @@ angular
                     url: '/show/{id}',
                     template: '<show-view></show-view>'
                 })
+                .state('edit',{
+                    url: '/edit/{id}',
+                    template: '<edit-view></edit-view>'
+                 })
+
                 .state('delete',{
                     url: '/delete/{id}'
                 });

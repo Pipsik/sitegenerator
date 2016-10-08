@@ -6,7 +6,7 @@ class SitesController < InheritedResources::Base
 		@sites = Site.all
 		 respond_to do |format|
       format.html
-      format.json { render :json => @sites.to_json }
+      format.json { render :json => @sites.to_json(:include => { :user => { :only => :username } }) }
     end
 	end
 
