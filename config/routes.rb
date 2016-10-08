@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   post '/postmodel' => 'pages#create'
   get '/site/:id/pages' => 'sites#pages'
   get '/user/:id/sites' => 'sites#user_sites'
+  get '/user/:id/achivements' => 'achivements#achivement'
 end
 

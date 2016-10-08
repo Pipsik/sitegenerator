@@ -14,9 +14,11 @@ angular.
                     $scope.sites = sites.data;
                     console.log(sites.data);
                     $scope.searchFromService=Search;
-
                 });
-                console.log($scope.raiting);
+
+                $scope.runMyFunction = function(vote){
+                    alert($scope.vote);
+                }
             }
         ]
 }).controller('syka',function ($scope, dataService, Search) {

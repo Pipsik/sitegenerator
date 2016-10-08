@@ -13,7 +13,7 @@
                 <td ng-show="site.name"><a href="#/show/{{site.id}}">{{site.name}}</a></td>
                 <td ng-show="site.description">{{site.description}}</td>
                 <td ng-show="site.user_id"><a href="#/{{site.user_id}}/profile">{{site.user.username}}</a></td>
-                <td><input-stars max="5" ng-model="raiting"></input-stars></td>
+                <td><input-stars max="5" on-star-click="runMyFunction()" ng-model="vote"></input-stars></td>
             </tr>
          </tbody>
          <tbody ng-show="searchFromService.search != null">
@@ -21,7 +21,7 @@
              <td><a href="#/show/{{searchFromService._source.id}}">{{searchFromService._source.name}}</a></td>
              <td>{{searchFromService._source.description}}</td>
              <td>{{searchFromService._source.user_id}}</td>
-             <td><input-stars max="5" ng-model="YourCtrl.property"></input-stars></td>
+             <td><input-stars on-star-click="runMyFunction(raiting)" max="5" ng-model="vote">{{vote}}</input-stars></td>
          </tr>
          </tbody>
      </table>
