@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
        user.provider=access_token.provider
        user.username=access_token.extra.raw_info.name
        user.email=access_token.extra.raw_info.email
+       user.image =access_token.info.image
        user.role = 'user'
        user.password=Devise.friendly_token[0,20]
     end
@@ -22,6 +23,7 @@ class User < ActiveRecord::Base
        user.provider=access_token.provider
        user.username=access_token.info.name
        user.email=access_token.info.email
+       user.image =access_token.info.image
        user.role = 'user'
        user.password=Devise.friendly_token[0,20]
     end
@@ -32,6 +34,7 @@ class User < ActiveRecord::Base
        user.provider=access_token.provider
        user.username=access_token.info.name
        user.email=access_token.info.email
+       user.image =access_token.info.image
        user.role = 'user'
        user.password=Devise.friendly_token[0,20]
     end

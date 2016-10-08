@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161007123407) do
+ActiveRecord::Schema.define(version: 20161008002420) do
 
   create_table "achivements", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 20161007123407) do
     t.string   "username",               limit: 255
     t.string   "nickname",               limit: 255
     t.string   "provider",               limit: 255
-    t.string   "url",                    limit: 255
+    t.string   "image",                  limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
     t.string   "email",                  limit: 255, default: "", null: false

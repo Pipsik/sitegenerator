@@ -17,6 +17,13 @@
  *
  */
 
+a:hover {
+    cursor:pointer;
+}
+a:active {
+    color: red;
+}
+
 ul{
     list-style-type: none;
 }

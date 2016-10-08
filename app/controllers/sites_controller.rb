@@ -32,6 +32,17 @@ class SitesController < InheritedResources::Base
     render json: @pages
   end
 
+  def user_sites
+    @user = User.find(params[:id])
+    render json: @user.sites
+  end
+
+  def destroy
+    @site = Site.find(params[:id])
+    @site.destroy
+    render json: @site
+  end
+
 
   private
 

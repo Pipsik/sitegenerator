@@ -6,36 +6,26 @@ module('user.profile')
   controller: [
     '$scope',
     'dataService',
+    '$state',
+    function ($scope, dataService, $state) {
+        dataService.get('/users/'+ $state.params.id).then(function(obj){
+            $scope.userInfo = obj.data;
+            $scope.url = $state.params.id;
+        });
+        dataService.get('/user/'+$state.params.id +'/sites').then(function(obj){
+          $scope.userSites = obj.data;
+        });
 
-    function ($scope, dataService) {
+        $scope.deleteSite = function (id) {
+            console.log(id);
+            dataService.delete('/sites/'+id).then(function(obj){
+                console.log(obj);
+            });
+        }
 
-      $scope.fileChanged = function (e) {
-
-        var files = e.target.files;
-        var fileReader = new FileReader();
-        fileReader.readAsDataURL(files[0]);
-
-        fileReader.onload = function (e) {
-
-          $scope.imgSrc = this.result;
-          $scope.result = this.result;
-          $scope.$apply();
-
-        };
-      }
-
-      $scope.SendData = function () {
-
-        dataService.post('/image', { data: $scope.result } )
-      }
-
-      $scope.clear = function () {
-        $scope.imageCropStep = 1;
-        delete $scope.imgSrc;
-        delete $scope.result;
-        delete $scope.resultBlob;
-      };
     }
+
+
 
   ]
 });

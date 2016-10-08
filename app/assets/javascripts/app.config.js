@@ -23,6 +23,9 @@ angular
                 .state('show',{
                     url: '/show/{id}',
                     template: '<show-view></show-view>'
+                })
+                .state('delete',{
+                    url: '/delete/{id}'
                 });
 
             $urlRouterProvider.otherwise('sites');
