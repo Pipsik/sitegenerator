@@ -1,14 +1,27 @@
-class ComentsController < InheritedResources::Base
-  before_action :set_site, only: [:show]
+class CommentsController < InheritedResources::Base
+  skip_before_filter  :verify_authenticity_token
+
+  
+  def index
+    @site = Site.find(params[:site_id])
+    @site.comments
+    render :json => @site.comments.to_json(:include => { :user => { :only => :username } })
+  end
+
 
   def create
-    page = Page.find(params[:page_id])
-    comment = page.comments.create(comment_params)
-    respond_with post, comment
+    @comment = Comment.new(comment_params.merge(user_id: current_user.id))
+    if @comment.save
+      render json: @comment.to_json(:include => { :user => { :only => :username } })
+    else
+      render json: {"error": comment.errors }
+    end
+
   end
+
 
   private
   def comment_params
-    params.require(:comment).permit(:body)
+    params.require(:comment).permit(:body,:site_id, :user_id)
   end
 end

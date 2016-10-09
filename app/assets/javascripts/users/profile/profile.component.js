@@ -21,15 +21,14 @@ module('user.profile')
         });
 
         $scope.deleteSite = function (id) {
-            console.log(id);
             dataService.delete('/sites/'+id).then(function(obj){
-                console.log(obj);
+                if(obj.data){
+                    var index = $scope.userSites.indexOf(id);
+                    $scope.userSites.splice(index, 1);
+                }
             });
         }
 
     }
-
-
-
   ]
 });

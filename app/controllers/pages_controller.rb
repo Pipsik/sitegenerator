@@ -13,27 +13,20 @@ class PagesController < InheritedResources::Base
       page.title = params[:title]
     end
     page.update_attributes(:content => params[:content])
-    p page
    render nothing: true
   end
 
 
   def show
-    @send = Page.find_by(params[:site_id])
-    @comments = @send.comments
-    render :json => {:page => @send, :comments => @comments}
+    @page = Page.find_by(params[:site_id])
+    render json: @page
   end
-  #
-  # def comments
-  #   @page = Site.find(params[:id])
-  #   @pages = @site.pages
-  #   render json: @pages
-  # end
+
 
   private
 
   def page_params
-    params.require(:page).permit(:title, :content, :site_id)
+    params.require(:page).permit(:title, :content)
   end
 
 end

@@ -16,11 +16,9 @@ angular.
                     $scope.searchFromService=Search;
                 });
 
-                $scope.runMyFunction = function(vote){
-                    alert($scope.vote);
-                }
             }
         ]
+
 }).controller('syka',function ($scope, dataService, Search) {
     $scope.userId = user_id;
     $scope.search = Search;
@@ -37,5 +35,9 @@ angular.
     $scope.restartPage = function () {
         $window.location.href = '/';
     }
+}).controller('raiting', function($scope){
+    $scope.raite =function () {
+        console.log($scope.vote);
+    };
 });
 

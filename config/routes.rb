@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   resources :achivements
-  resources :sites
-  resources :pages do
-    resources :comments, only:[:show, :create]
+  resources :sites do
+    resources :comments, only:[:index, :create]
   end
+  resources :pages
 
 
   devise_for :admin_users, ActiveAdmin::Devise.config

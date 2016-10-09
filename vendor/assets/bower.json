@@ -11,6 +11,7 @@
     "ng-tags-input": "latest",
     "angular-utils-pagination": "latest",
     "angular-sanitize": "latest",
-    "angular-input-stars": "latest"
+    "angular-input-stars": "latest",
+    "angular-jk-rating-stars": "latest"
   }
 }

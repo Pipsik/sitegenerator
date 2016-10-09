@@ -4,15 +4,15 @@
     <form ng-submit="addSite()" ng-model="site" >
         <div class="form-group">
             <label>Name</label>
-            <input type="text" ng-readonly="show" class="form-control" ng-model="name"  placeholder="input site name" >
+            <input type="text" ng-readonly="show" class="form-control" ng-model="name"  placeholder="input site name" required>
         </div>
         <div class="form-group">
             <label>Description</label>
-            <input type="text" class="form-control" ng-model="description" ng-readonly="show"  placeholder="description">
+            <input type="text" class="form-control" ng-model="description" ng-readonly="show"  placeholder="description" required>
         </div>
         <div ng-hide="show" class="form-group">
             <label>tags</label>
-            <tags-input  ng-model="tags"></tags-input>
+            <tags-input  ng-model="tags" required></tags-input>
         </div>
          <button ng-click="show = true" ng-hide="show" type="submit" class="btn btn-default">Submit</button>
     </form>

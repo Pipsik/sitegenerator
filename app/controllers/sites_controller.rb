@@ -27,9 +27,9 @@ class SitesController < InheritedResources::Base
   end
 
   def pages
-    @site = Site.find(params[:id])
-    @pages = @site.pages
-    render json: @pages
+      @site = Site.find(params[:id])
+      @pages = @site.pages
+      render json: @pages
   end
 
   def user_sites
@@ -38,9 +38,9 @@ class SitesController < InheritedResources::Base
   end
 
   def destroy
-    @site = Site.find(params[:id])
-    @site.destroy
-    render json: @site
+      @site = Site.find(params[:id])
+      @site.destroy
+      render json: @site
   end
 
 

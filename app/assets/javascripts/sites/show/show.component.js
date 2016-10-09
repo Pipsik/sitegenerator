@@ -9,7 +9,6 @@ component('showView', {
         '$state',
         '$stateParams',
         function ($scope, dataService, $stateParams, $state) {
-
             var object = angular.element(document.getElementById('putHtml'));
             var parseHtml = function(chlen)
             {
@@ -40,8 +39,8 @@ component('showView', {
             };
             dataService.get('/site/'+ $state.params.id +'/pages').then(function(obj){
                $scope.SiteData = obj.data;
-             var  first = JSON.parse(obj.data[0].content).modeling;
-                object.append(parseHtml(first));
+               var  first = JSON.parse(obj.data[0].content).modeling;
+               object.append(parseHtml(first));
             });
             dataService.get('/sites/'+ $state.params.id).then(function(sitename){
                $scope.SiteName = sitename.data.name ;
@@ -54,8 +53,26 @@ component('showView', {
                 var chlen = JSON.parse(content).modeling;
                 object.text("");
                 object.append(parseHtml(chlen));
-
             };
+
+            dataService.get('/sites/'+$state.params.id+ '/comments').then(function(comments){
+                $scope.comments = comments.data;
+                console.log($scope.comments);
+            });
+
+            $scope.addComment = function(){
+                var commentObj ={
+                    body: $scope.body,
+                    user_id: user_id,
+                    site_id: $state.params.id
+                };
+                dataService.post('/sites/'+ $state.params.id +'/comments', commentObj).then(function(comment){
+                    console.log(comment);
+                    $scope.comments.push(comment.data);
+                });
+                $scope.body = '';
+            }
+
         }
     ]
 });

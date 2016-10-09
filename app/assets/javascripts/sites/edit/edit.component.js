@@ -9,10 +9,10 @@ module('site.edit')
             '$state',
             function ($scope, dataService, $state) {
                 dataService.get('/site/'+ $state.params.id +'/pages').then(function(obj) {
-                    $scope.SiteData = obj.data;
-                    console.log($scope.SiteData);
-                    $scope.i = $scope.SiteData.length;
-                    console.log($scope.i);
+                        $scope.SiteData = obj.data;
+                        $scope.i = $scope.SiteData.length;
+                        console.log(obj.data);
+
                 });
                 dataService.get('/sites/'+ $state.params.id).then(function(sitename){
                     $scope.SiteName = sitename.data ;
@@ -37,7 +37,6 @@ module('site.edit')
                         ]
                     }
                 };
-
                 $scope.addLink = function () {
                     $scope.models.dropzones = {
 
@@ -55,22 +54,24 @@ module('site.edit')
                     $scope.SiteData.push({title: $scope.nameLink, content:$scope.models.dropzones});
                 };
 
-                $scope.uploadPage = function(object){
-                    console.log(object);
-                    dataService.get('/site/' + $state.params.id + '/pages').then(function(){
-                        $scope.models.dropzones = angular.fromJson(object);
-                    });
+                $scope.saveEditPage =function(){
+                    var mod ={
+                        content: $scope.modelAsJson,
+                        site_id: $state.params.id,
+                        title: $scope.nameLink
+                    };
+                    console.log(mod);
+                    dataService.post('/postmodel', mod).then(function(ob){alert(ob);});
 
                 };
 
-                $scope.savePage =function(){
-                    var mod ={
-                        content: $scope.modelAsJson,
-                        site_id: $scope.site_id,
-                        title: $scope.nameLink
-                    };
-                    dataService.post('/postmodel', mod).then(function(ob){alert(ob);});
+                $scope.uploadPage = function(title){
 
+                    dataService.get('/site/' + $state.params.id + '/pages').then(function(obj){
+                        $scope.models.dropzones = angular.fromJson(obj.data.filter(function(value){ return value.title === title;})[0].content);
+                        console.log(obj);
+                    });
+                    $scope.nameLink = title;
                 };
 
                 $scope.dropCallback = function(event, index, item, external, type, allowedType){
