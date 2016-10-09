@@ -32,28 +32,33 @@ component('createView', {
       };
 
     $scope.addSite = function(){
-      var o = {
-          name: $scope.name,
-          description: $scope.description,
-          tags: $scope.tags
-      };
+        if($scope.name && $scope.description && $scope.tags){
+            var o = {
+                name: $scope.name,
+                description: $scope.description,
+                tags: $scope.tags
+            };
 
-      dataService.post('return', o).then(function(obj) {
-           $scope.site_id = obj.data.id;
-          if(obj.data == 'authError'){
-              alert("Access denied. Please authenticate");
-              window.location = "/";
-          }
-      });
+            dataService.post('return', o).then(function(obj) {
+                $scope.site_id = obj.data.id;
+                if(obj.data == 'authError'){
+                    alert("Access denied. Please authenticate");
+                    window.location = "/";
+                }
+            });
 
-        var first = {
-            content: $scope.models.dropzones,
-            site_id: $scope.site_id,
-            title: $scope.nameLink
-        };
-      dataService.post('/postmodel', first).then(function(ob){
-      });
+            var first = {
+                content: $scope.models.dropzones,
+                site_id: $scope.site_id,
+                title: $scope.nameLink
+            };
+            dataService.post('/postmodel', first).then(function(ob){
+            });
 
+        }
+        else {
+            alert('syka');
+        }
     };
 
 
