@@ -12,10 +12,9 @@ angular.
             function ($scope, dataService, Search) {
                 dataService.get('/sites.json').then(function(sites){
                     $scope.sites = sites.data;
-                    console.log(sites.data);
                     $scope.searchFromService=Search;
+                    console.log(sites);
                 });
-
             }
         ]
 

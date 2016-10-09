@@ -77,6 +77,12 @@ component('showView', {
                 $scope.id = Flash.create('success', 'Comment created succes');
             }
 
+            $scope.rait_star = function(raiting) {
+                console.log(raiting);
+                dataService.post('/site/'+ $state.params.id, {mark: raiting}).then(function(obj){
+                });
+                $scope.enableReadonly = true;
+            }
         }
     ]
 });

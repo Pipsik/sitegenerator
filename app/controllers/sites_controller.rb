@@ -6,7 +6,7 @@ class SitesController < InheritedResources::Base
 
 
 	def index
-		@sites = Site.all.includes(:user)
+		@sites = Site.all.includes(:user).order('mark DESC')
 		 respond_to do |format|
       format.html
       format.json { render :json => @sites.to_json(:include => { :user => { :only => :username } }) }
@@ -14,7 +14,6 @@ class SitesController < InheritedResources::Base
 	end
 
   def show
-    bnding.pry
     render json: resource.to_json
   end
 
@@ -48,6 +47,14 @@ class SitesController < InheritedResources::Base
       @site = Site.find(params[:id])
       @site.destroy
       render json: @site
+  end
+
+  def mark
+    @site = Site.find(params[:id])
+    @site.mark =(@site.mark + params[:mark])/2
+    @site.mark.round(2)
+    @site.save
+    render json: @site
   end
 
   private

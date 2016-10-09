@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post '/image' => 'users#profile_photo'
   post '/search' => 'sites#search_data'
   post '/postmodel' => 'pages#create'
+  post '/site/:id' => 'sites#mark'
   get '/site/:id/pages' => 'sites#pages'
   get '/site/:id/update_pages' => 'sites#pages'
   get '/user/:id/sites' => 'sites#user_sites'

@@ -6,7 +6,7 @@ class Ability
       if user.role.admin?
         can :manage, :all
       elsif user.role.user?
-        can [:create, :show, :index, :pages, :user_sites], [Site, Comment, Page]
+        can [:create, :show, :index, :pages, :user_sites, :mark], [Site, Comment, Page]
         can [:pages, :search_data], [Site]
         can [:update_pages, :destroy], [Site, Comment], :user_id => user.id
       else
