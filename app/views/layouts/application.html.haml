@@ -37,7 +37,7 @@
                 %li
                   %a{'ng-href'=> '#/{{userId}}/profile'} My profile
                 %li
-                  %a{'ng-href'=> '#/{{userId}}/create'} Create site
+                  %a{'ng-href'=> '#/sites/create'} Create site
                 %li= link_to "Logout", destroy_user_session_path, :method => :delete
         %form.navbar-form.navbar-left{role: "search", "ng-controller": "syka"}
           .form-group

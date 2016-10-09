@@ -89,6 +89,7 @@ GEM
       xpath (~> 2.0)
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
+    clean_pagination (1.0.0)
     cloudinary (1.2.3)
       aws_cf_signer
       rest-client
@@ -358,6 +359,7 @@ DEPENDENCIES
   byebug
   cancancan (~> 1.10)
   capybara
+  clean_pagination (~> 1.0)
   cloudinary
   coffee-rails (~> 4.1.0)
   devise

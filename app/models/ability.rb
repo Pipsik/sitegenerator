@@ -11,7 +11,7 @@ class Ability
         can [:update_pages, :destroy], [Site, Comment], :user_id => user.id
       else
         can :read, :all
-        сan [:search_data], [Site]
+        can [:search_data], [Site]
         can [:pages, :user_sites], [Site]
       end
   end

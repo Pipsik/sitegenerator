@@ -9,7 +9,7 @@ angular
                     template: '<sites-view></sites-view>'
                 })
                 .state('create', {
-                    url: '/{id}/create',
+                    url: '/sites/create',
                     template: '<create-view></create-view>'
                 })
                 .state('search', {

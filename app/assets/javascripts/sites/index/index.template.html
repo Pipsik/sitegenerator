@@ -14,7 +14,7 @@
                 <td ng-show="site.name"><a href="#/show/{{site.id}}">{{site.name}}</a></td>
                 <td ng-show="site.description">{{site.description}}</td>
                 <td ng-show="site.user_id"><a href="#/{{site.user_id}}/profile">{{site.user.username}}</a></td>
-                <td><input-stars max="5" on-star-click="raite()" ng-model="raiting.vote"></input-stars></td>
+                <td><input-stars max="5" on-star-click="raite()" ng-model="vote"></input-stars></td>
             </tr>
          </tbody>
          <tbody ng-controller="raiting" ng-show="searchFromService.search != null">

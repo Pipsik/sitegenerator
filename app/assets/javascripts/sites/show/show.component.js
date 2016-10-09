@@ -8,7 +8,8 @@ component('showView', {
         'Search',
         '$state',
         '$stateParams',
-        function ($scope, dataService, $stateParams, $state) {
+        'Flash',
+        function ($scope, dataService, $stateParams, $state, Flash) {
             var object = angular.element(document.getElementById('putHtml'));
             var parseHtml = function(chlen)
             {
@@ -67,10 +68,13 @@ component('showView', {
                     site_id: $state.params.id
                 };
                 dataService.post('/sites/'+ $state.params.id +'/comments', commentObj).then(function(comment){
+
                     console.log(comment);
                     $scope.comments.push(comment.data);
+
                 });
                 $scope.body = '';
+                $scope.id = Flash.create('success', 'Comment created succes');
             }
 
         }

@@ -47,6 +47,7 @@ gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-ra
 gem 'elasticsearch-rails'
 gem 'cancancan', '~> 1.10'
 gem 'enumerize'
+gem 'clean_pagination', '~> 1.0'
 group :development, :test do
 gem 'angular-rails-templates'
 gem 'pry'

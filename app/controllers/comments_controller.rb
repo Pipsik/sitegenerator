@@ -15,7 +15,7 @@ class CommentsController < InheritedResources::Base
     if @comment.save
       render json: @comment.to_json(:include => { :user => { :only => :username } })
     else
-      render json: {"error": comment.errors }
+      render json: {"error": @comment.errors }
     end
 
   end

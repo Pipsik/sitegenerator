@@ -8,7 +8,7 @@ class Site < ActiveRecord::Base
 	serialize :tags, Array
 	belongs_to :user
 	has_many :pages, dependent: :destroy
-	has_many :comments
+	has_many :comments, dependent: :destroy
 
 
 

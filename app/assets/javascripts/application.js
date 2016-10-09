@@ -26,6 +26,7 @@
 //= require angular-utils-pagination
 //= require angular-sanitize
 //= require angular-input-stars
+//= require angular-flash-alert
 
 // = require app.module
 // = require app.config

@@ -4,22 +4,13 @@ component('createView', {
   controller: [
   '$scope',
   'dataService',
-  '$compile',
 
-  function ($scope, dataService, $compile) {
-    $scope.addSite = function(){
-      var o = {
-          name: $scope.name,
-          description: $scope.description,
-          tags: $scope.tags
-      };
+  function ($scope, dataService) {
+      $scope.tags = [];
+      $scope.nameLink='Home';
+      $scope.links=[{text: $scope.nameLink}];
+      var i = 1;
 
-      dataService.post('return', o).then(function(obj) {
-           $scope.site_id = obj.data.id;
-            console.log($scope.site_id);
-      });
-
-    };
       $scope.models = {
           selected: null,
           templates: [
@@ -39,14 +30,43 @@ component('createView', {
               ]
           }
       };
+
+    $scope.addSite = function(){
+      var o = {
+          name: $scope.name,
+          description: $scope.description,
+          tags: $scope.tags
+      };
+
+      dataService.post('return', o).then(function(obj) {
+           $scope.site_id = obj.data.id;
+          if(obj.data == 'authError'){
+              alert("Access denied. Please authenticate");
+              window.location = "/";
+          }
+      });
+
+        var first = {
+            content: $scope.models.dropzones,
+            site_id: $scope.site_id,
+            title: $scope.nameLink
+        };
+      dataService.post('/postmodel', first).then(function(ob){
+      });
+
+    };
+
+
       // $scope.currentId = 0;
-      $scope.tags = [];
-      $scope.nameLink='Home';
-      $scope.links=[{text: $scope.nameLink}];
-      var i = 1;
+
 
       $scope.addLink = function () {
-
+          var mod ={
+              content: $scope.modelAsJson,
+              site_id: $scope.site_id,
+              title: $scope.nameLink
+          };
+          dataService.post('/postmodel', mod).then(function(ob){});
           $scope.nameLink ="link" + i++;
           $scope.links.push({text: $scope.nameLink});
 
@@ -64,17 +84,24 @@ component('createView', {
           };
        };
 
-      $scope.savePage =function(){
+      // $scope.savePage =function(){
+      //     var mod ={
+      //         content: $scope.modelAsJson,
+      //         site_id: $scope.site_id,
+      //         title: $scope.nameLink
+      //     };
+      //     dataService.post('/postmodel', mod).then(function(ob){});
+      //
+      // };
+
+      $scope.changePage = function(link) {
           var mod ={
               content: $scope.modelAsJson,
               site_id: $scope.site_id,
               title: $scope.nameLink
           };
-          dataService.post('/postmodel', mod).then(function(ob){alert(ob);});
+          dataService.post('/postmodel', mod).then(function(ob){});
 
-      };
-
-      $scope.changePage = function(link) {
           var index = $scope.links.indexOf(link);
           $scope.nameLink = $scope.links[index].text;
           console.log($scope.nameLink);

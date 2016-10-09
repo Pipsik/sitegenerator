@@ -4,6 +4,8 @@ angular.
     'core',
     'user',
 
+
+    'ngFlash',
     'dndLists',
     'ngRoute',
     'templates',
@@ -17,3 +19,9 @@ angular.
 ]).factory('Search',function(){
    return {text: ''}
 });
+
+
+
+
+
+

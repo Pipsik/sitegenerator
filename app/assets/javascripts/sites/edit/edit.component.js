@@ -9,15 +9,23 @@ module('site.edit')
             '$state',
             function ($scope, dataService, $state) {
 
-                dataService.get('/site/'+ $state.params.id +'/updatesite').then(function(obj) {
+                dataService.get('/site/'+ $state.params.id +'/update_pages').then(function(obj) {
                     if(obj.data){
                         $scope.SiteData = obj.data;
                         console.log($scope.SiteData);
                         $scope.i = $scope.SiteData.length;
                         console.log(obj.data);
                     }
+                    if(obj.data == 'authError'){
+                        alert("Access denied. Please authenticate");
+                        window.location = "/";
+                    }
                 });
-                dataService.get('/sites/'+ $state.params.id).then(function(sitename){
+                dataService.get('/sites/'+ $state.params.id+'/edit').then(function(sitename){
+                    if(sitename.data == 'authError'){
+                        alert("Access denied. Please authenticate");
+                        window.location = "/";
+                    }
                     $scope.SiteName = sitename.data ;
                 });
 
@@ -63,16 +71,14 @@ module('site.edit')
                         site_id: $state.params.id,
                         title: $scope.nameLink
                     };
-                    console.log(mod);
                     dataService.post('/postmodel', mod).then(function(ob){alert(ob);});
 
                 };
 
                 $scope.uploadPage = function(title){
 
-                    dataService.get('/site/' + $state.params.id + '/updatesite').then(function(obj){
+                    dataService.get('/site/' + $state.params.id + '/update_pages').then(function(obj){
                         $scope.models.dropzones = angular.fromJson(obj.data.filter(function(value){ return value.title === title;})[0].content);
-                        console.log(obj);
                     });
                     $scope.nameLink = title;
                 };
