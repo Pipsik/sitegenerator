@@ -1,6 +1,8 @@
 class SitesController < InheritedResources::Base
   protect_from_forgery with: :exception
   skip_before_filter  :verify_authenticity_token
+  # before_action :authenticate_user!
+  load_and_authorize_resource
 
 	def index
 		@sites = Site.all
@@ -32,8 +34,16 @@ class SitesController < InheritedResources::Base
       render json: @pages
   end
 
+  def update_pages
+    @site = Site.find(params[:id])
+    @pages = @site.pages
+    render json: @pages
+  end
+
   def user_sites
     @user = User.find(params[:id])
+    p @user
+    p @sites
     render json: @user.sites
   end
 
@@ -42,6 +52,7 @@ class SitesController < InheritedResources::Base
       @site.destroy
       render json: @site
   end
+
 
 
   private

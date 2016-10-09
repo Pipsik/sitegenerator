@@ -35,18 +35,17 @@
                             <th>Edit date</th>
                             <th>Create date</th>
                             <th>Raiting</th>
-                            <th ng-if="user.id == user.sessionId && user.id != null">Management</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr ng-repeat="site in userSites">
-                            <td>{{site.name}}</td>
+                            <td><a href="#/show/{{site.id}}">{{site.name}}</a></td>
                             <td>{{site.description}}</td>
                             <td>{{site.created_at}}</td>
                             <td><input-stars max="5" ng-model="raiting"></td>
                             <td>
-                                <a href="#/edit/{{site.id}}" class="btn btn-success ">Edit</a>
-                                <a ng-click="deleteSite(site.id)" class="btn btn-danger ">Delete</a>
+                                <a ng-if="current_user === url" href="#/edit/{{site.id}}" class="btn btn-success ">Edit</a>
+                                <a ng-if="current_user === url" ng-click="deleteSite(site.id)" class="btn btn-danger ">Delete</a>
                             </td>
                         </tr>
                         </tbody>

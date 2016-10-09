@@ -45,6 +45,8 @@ gem 'bower-rails'
 gem 'angular-ui-router-rails'
 gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
 gem 'elasticsearch-rails'
+gem 'cancancan', '~> 1.10'
+gem 'enumerize'
 group :development, :test do
 gem 'angular-rails-templates'
 gem 'pry'

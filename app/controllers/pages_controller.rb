@@ -1,6 +1,8 @@
 class PagesController < InheritedResources::Base
   protect_from_forgery with: :exception
   skip_before_filter  :verify_authenticity_token
+  # before_action :authenticate_user!
+  load_and_authorize_resource
 
   def index
     render json: Page.all

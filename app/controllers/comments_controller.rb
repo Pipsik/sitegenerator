@@ -1,7 +1,8 @@
 class CommentsController < InheritedResources::Base
   skip_before_filter  :verify_authenticity_token
+  # before_action :authenticate_user!
+  load_and_authorize_resource
 
-  
   def index
     @site = Site.find(params[:site_id])
     @site.comments

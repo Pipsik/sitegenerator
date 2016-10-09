@@ -11,6 +11,7 @@
  * file per style scope.
  *= require ng-tags-input
  *= require summernote
+
  *= require_self
  *= require_tree .
  *

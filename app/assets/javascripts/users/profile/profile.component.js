@@ -8,6 +8,7 @@ module('user.profile')
     'dataService',
     '$state',
     function ($scope, dataService, $state) {
+        $scope.current_user = user_id;
         dataService.get('/users/'+ $state.params.id).then(function(obj){
             $scope.userInfo = obj.data;
             $scope.url = $state.params.id;

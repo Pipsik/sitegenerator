@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   post '/search' => 'sites#search_data'
   post '/postmodel' => 'pages#create'
   get '/site/:id/pages' => 'sites#pages'
+  get '/site/:id/updatesite' => 'sites#update_pages'
   get '/user/:id/sites' => 'sites#user_sites'
   get '/user/:id/achivements' => 'achivements#achivement'
 end

@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  extend Enumerize
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_and_belongs_to_many :achivements
@@ -7,6 +8,7 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+  enumerize :role, in: [:user, :admin, :guest], default: :guest
 
   def self.find_for_facebook_oauth access_token
     user = User.where(:email => access_token.info.email).first_or_create do |user|
@@ -40,4 +42,5 @@ class User < ActiveRecord::Base
        user.password=Devise.friendly_token[0,20]
     end
   end
+
 end

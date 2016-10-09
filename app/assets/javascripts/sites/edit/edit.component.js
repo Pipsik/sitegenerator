@@ -8,11 +8,14 @@ module('site.edit')
             'dataService',
             '$state',
             function ($scope, dataService, $state) {
-                dataService.get('/site/'+ $state.params.id +'/pages').then(function(obj) {
+
+                dataService.get('/site/'+ $state.params.id +'/updatesite').then(function(obj) {
+                    if(obj.data){
                         $scope.SiteData = obj.data;
+                        console.log($scope.SiteData);
                         $scope.i = $scope.SiteData.length;
                         console.log(obj.data);
-
+                    }
                 });
                 dataService.get('/sites/'+ $state.params.id).then(function(sitename){
                     $scope.SiteName = sitename.data ;
@@ -67,7 +70,7 @@ module('site.edit')
 
                 $scope.uploadPage = function(title){
 
-                    dataService.get('/site/' + $state.params.id + '/pages').then(function(obj){
+                    dataService.get('/site/' + $state.params.id + '/updatesite').then(function(obj){
                         $scope.models.dropzones = angular.fromJson(obj.data.filter(function(value){ return value.title === title;})[0].content);
                         console.log(obj);
                     });
