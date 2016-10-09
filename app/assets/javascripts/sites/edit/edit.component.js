@@ -21,7 +21,7 @@ module('site.edit')
                         window.location = "/";
                     }
                 });
-                dataService.get('/sites/'+ $state.params.id+'/edit').then(function(sitename){
+                dataService.get('/sites/'+ $state.params.id).then(function(sitename){
                     if(sitename.data == 'authError'){
                         alert("Access denied. Please authenticate");
                         window.location = "/";

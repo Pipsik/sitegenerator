@@ -31,13 +31,13 @@ component('createView', {
           }
       };
 
-    $scope.addSite = function(){
-        if($scope.name && $scope.description && $scope.tags){
+    $scope.addSite = function(createForm){
             var o = {
                 name: $scope.name,
                 description: $scope.description,
                 tags: $scope.tags
             };
+
 
             dataService.post('return', o).then(function(obj) {
                 $scope.site_id = obj.data.id;
@@ -55,10 +55,6 @@ component('createView', {
             dataService.post('/postmodel', first).then(function(ob){
             });
 
-        }
-        else {
-            alert('syka');
-        }
     };
 
 
