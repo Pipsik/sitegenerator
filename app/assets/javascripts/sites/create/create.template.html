@@ -1,7 +1,7 @@
 
 <div>
   <div class="col-sm-2" >
-    <form ng-submit="addSite()" ng-model="site" >
+    <form ng-submit="addSite()" name="myForm" ng-model="site" >
         <div class="form-group">
             <label>Name</label>
             <input type="text" ng-readonly="show" class="form-control" ng-model="name"  placeholder="input site name" required>
@@ -14,7 +14,7 @@
             <label>tags</label>
             <tags-input  ng-model="tags" required></tags-input>
         </div>
-         <button ng-click="show = true" ng-hide="show" type="submit" class="btn btn-default">Submit</button>
+         <button ng-disabled="myForm.$invalid" ng-click="show = true" ng-hide="show" type="submit" class="btn btn-default">Submit</button>
     </form>
   </div>
 

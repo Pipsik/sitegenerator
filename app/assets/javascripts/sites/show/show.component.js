@@ -70,12 +70,16 @@ component('showView', {
                 dataService.post('/sites/'+ $state.params.id +'/comments', commentObj).then(function(comment){
 
                     console.log(comment);
-                    $scope.comments.push(comment.data);
+                    if(comment.data.error){
+                        alert('Comment can\'t be blank' );
+                    }
+                    else{
+                        $scope.comments.push(comment.data);
+                    }
 
                 });
                 $scope.body = '';
-                $scope.id = Flash.create('success', 'Comment created succes');
-            }
+            };
 
             $scope.rait_star = function(raiting) {
                 console.log(raiting);
