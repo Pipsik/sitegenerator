@@ -1,7 +1,7 @@
 
 <div>
   <div class="col-sm-2" >
-    <form ng-submit="addSite(createForm)" ng-model="site" name="createForm" >
+    <form ng-submit="addSite()" ng-model="site" >
         <div class="form-group">
             <label>Name</label>
             <input type="text" ng-readonly="show" class="form-control" ng-model="name"  placeholder="input site name" required>
@@ -65,12 +65,15 @@
                 <ul class="nav navbar-nav" >
                     <li ng-repeat="link in links"><a ng-click="changePage(link)">{{link.text}}</a></li>
                 </ul>
-                <button type="button" class="btn btn-default"  ng-click="addLink(); showplus=false">+</button>
+                <button type="button" class="btn btn-info"  ng-click="addLink(); showplus=false">+</button>
             </div>
             <!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
 </div>
+    <div class="col-sm-2">
+        <a type="button" ng-click="saveSite()" ng-href="#/show/{{site_id}}" class="btn btn-info">Save site</a>
+    </div>
 <!--<div class="col-sm-2">-->
     <!--<button type="button" class="btn btn-default" ng-click="savePage(); showplus = true">Save Page</button>-->
 <!--</div>-->
@@ -120,11 +123,11 @@
         <!-- If you use [] as referenced list, the dropped elements will be lost -->
         <h3>Trashcan</h3>
         <ul dnd-list="[]">
-            <li><img src="nested/trashcan.jpg"></li>
+            <li><img src="assets/trashcan.jpg"></li>
         </ul>
     </div>
 
 </div>
     </div>
 </div>
-
+</div>

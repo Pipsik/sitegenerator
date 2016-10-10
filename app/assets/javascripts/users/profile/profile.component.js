@@ -19,7 +19,9 @@ module('user.profile')
                 });
 
                 dataService.get('/user/'+$state.params.id+'/achivements.json').then(function(obj){
-                    $scope.achivements = obj.data.site;
+                    $scope.sitescount = obj.data.site;
+                    $scope.commentscount = obj.data.comment
+
                 });
 
                 $scope.deleteSite = function (id) {

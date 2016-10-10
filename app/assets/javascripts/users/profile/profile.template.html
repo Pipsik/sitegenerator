@@ -18,7 +18,10 @@
                         <div class="col-md-10">
                             <div>Name: {{userInfo.username}}</div>
                             <div>Email: <a ng-href="{{user.socialUrl}}">{{userInfo.email}}</a></div>
-                            <div><span class="label label-{{achivements.label}}">{{achivements.count}} sites</span></div>
+                            <div>
+                                <span class="label label-{{sitescount.label}}">{{sitescount.count}} sites</span>
+                                <span class="label label-{{commentscount.label}}">{{commentscount.count}} comments</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -32,23 +35,24 @@
                         <thead>
                         <tr>
                             <th>Title</th>
-                            <th>Edit date</th>
+                            <th>Description</th>
                             <th>Create date</th>
                             <th>Raiting</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="site in userSites">
+                        <tr dir-paginate="site in userSites | itemsPerPage: 5">
                             <td><a href="#/show/{{site.id}}">{{site.name}}</a></td>
                             <td>{{site.description}}</td>
                             <td>{{site.created_at}}</td>
-                            <td><input-stars max="5" ng-model="raiting"></input-stars></td>
+                            <td>{{site.mark}}</td>
                             <td>
                                 <a ng-if="current_user === url" href="#/edit/{{site.id}}" class="btn btn-success ">Edit</a>
                                 <a ng-if="current_user === url" ng-click="deleteSite(site.id)" class="btn btn-danger ">Delete</a>
                             </td>
                         </tr>
                         </tbody>
+                        <dir-pagination-controls></dir-pagination-controls>
                     </table>
                 </div>
                 <div>

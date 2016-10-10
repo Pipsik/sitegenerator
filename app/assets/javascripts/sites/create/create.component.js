@@ -31,29 +31,29 @@ component('createView', {
           }
       };
 
-    $scope.addSite = function(createForm){
-            var o = {
-                name: $scope.name,
-                description: $scope.description,
-                tags: $scope.tags
-            };
+    $scope.addSite = function(){
+      var o = {
+          name: $scope.name,
+          description: $scope.description,
+          tags: $scope.tags
+      };
 
+      dataService.post('/return', o).then(function(obj) {
+           $scope.site_id = obj.data.id;
+          console.log($scope.site_id);
+          if(obj.data == 'authError'){
+              alert("Access denied. Please authenticate")
+              window.location = "/";
+          }
+      });
 
-            dataService.post('return', o).then(function(obj) {
-                $scope.site_id = obj.data.id;
-                if(obj.data == 'authError'){
-                    alert("Access denied. Please authenticate");
-                    window.location = "/";
-                }
-            });
-
-            var first = {
-                content: $scope.models.dropzones,
-                site_id: $scope.site_id,
-                title: $scope.nameLink
-            };
-            dataService.post('/postmodel', first).then(function(ob){
-            });
+        var first = {
+            content: $scope.models.dropzones,
+            site_id: $scope.site_id,
+            title: $scope.nameLink
+        };
+      dataService.post('/postmodel', first).then(function(ob){
+      });
 
     };
 
@@ -85,15 +85,6 @@ component('createView', {
           };
        };
 
-      // $scope.savePage =function(){
-      //     var mod ={
-      //         content: $scope.modelAsJson,
-      //         site_id: $scope.site_id,
-      //         title: $scope.nameLink
-      //     };
-      //     dataService.post('/postmodel', mod).then(function(ob){});
-      //
-      // };
 
       $scope.changePage = function(link) {
           var mod ={
@@ -109,6 +100,14 @@ component('createView', {
           dataService.get('/site/' + $scope.site_id + '/pages').then(function (obj) {
               $scope.models.dropzones = angular.fromJson(obj.data[index].content);
           });
+      };
+      $scope.saveSite = function(){
+          var mod ={
+                      content: $scope.modelAsJson,
+                      site_id: $scope.site_id,
+                      title: $scope.nameLink
+                  };
+                  dataService.post('/postmodel', mod).then(function(ob){alert(ob)});
       };
 
 

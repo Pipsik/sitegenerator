@@ -40,7 +40,7 @@ class SitesController < InheritedResources::Base
 
   def user_sites
     @user = User.find(params[:id])
-    render json: @user.sites
+    render json: @user.sites.order('mark DESC')
   end
 
   def destroy
