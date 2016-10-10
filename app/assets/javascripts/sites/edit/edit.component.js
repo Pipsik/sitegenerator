@@ -49,6 +49,11 @@ module('site.edit')
                     }
                 };
                 $scope.addLink = function () {
+                    var mod ={
+                        content: $scope.modelAsJson,
+                        site_id: $state.params.id,
+                        title: $scope.nameLink
+                    };
                     $scope.models.dropzones = {
 
                         "modeling": [
@@ -61,21 +66,28 @@ module('site.edit')
 
                         ]
                     };
+                    dataService.post('/postmodel', mod).then(function(ob){});
                     $scope.nameLink = "link" + $scope.i++;
                     $scope.SiteData.push({title: $scope.nameLink, content:$scope.models.dropzones});
                 };
 
-                $scope.saveEditPage =function(){
+                $scope.saveEditSite =function(){
                     var mod ={
                         content: $scope.modelAsJson,
                         site_id: $state.params.id,
                         title: $scope.nameLink
                     };
-                    dataService.post('/postmodel', mod).then(function(ob){alert(ob);});
+                    dataService.post('/postmodel', mod).then(function(ob){});
 
                 };
 
                 $scope.uploadPage = function(title){
+                    var mod ={
+                        content: $scope.modelAsJson,
+                        site_id: $state.params.id,
+                        title: $scope.nameLink
+                    };
+                    dataService.post('/postmodel', mod).then(function(ob){});
 
                     dataService.get('/site/' + $state.params.id + '/update_pages').then(function(obj){
                         $scope.models.dropzones = angular.fromJson(obj.data.filter(function(value){ return value.title === title;})[0].content);

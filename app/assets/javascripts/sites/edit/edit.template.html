@@ -57,17 +57,16 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav" >
-                            <li ng-repeat="obj in SiteData"><a class="header" ng-click="uploadPage(obj.title)" ng-disabled="isActive()">{{obj.title}}</a></li>
-                            <!--<li ng-repeat="link in links"><a ng-click="changePage(link)">{{link.text}}</a></li>-->
+                            <li ng-repeat="obj in SiteData"><a class="header" ng-click="uploadPage(obj.title)">{{obj.title}}</a></li>
                         </ul>
-                        <button type="button" class="btn btn-default" ng-show="showplus" ng-click="addLink(); showplus=false">+</button>
+                        <button type="button" class="btn btn-info" ng-click="addLink();">+</button>
                     </div>
                     <!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
             </nav>
         </div>
         <div class="col-sm-2">
-            <button type="button" class="btn btn-default" ng-click="saveEditPage(); showplus = true">Save Page</button>
+            <button type="button" class="btn btn-info" ng-click="saveEditSite(); showplus = true">Save Page</button>
         </div>
         <!-- Main area with dropzones and source code -->
         <div class="col-sm-7">
@@ -115,7 +114,7 @@
                 <!-- If you use [] as referenced list, the dropped elements will be lost -->
                 <h3>Trashcan</h3>
                 <ul dnd-list="[]">
-                    <li><img src="nested/trashcan.jpg"></li>
+                    <li><img src="assets/trashcan.jpg"></li>
                 </ul>
             </div>
 

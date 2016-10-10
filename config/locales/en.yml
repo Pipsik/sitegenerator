@@ -21,3 +21,17 @@
 
 en:
   hello: "Hello world"
+  information: "Information"
+  search: "Search"
+  locale: "Language"
+  profile: "My Profile"
+  create: "Create Site"
+  signout: "Logout"
+  english: "English"
+  russian: "Russian"
+  login: "Sign in"
+  facebook: "Sign in with Facebook"
+  vkontakte: "Sign in with Vkontakte"
+  twitter: "Sign in with Twitter"
+
+

@@ -22,37 +22,37 @@
           - if !user_signed_in?
             %li.dropdown
               %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-                Authentification
+                %span=t('login')
                 %b.caret
               %ul.dropdown-menu
-                %li= link_to "Login with facebook", user_facebook_omniauth_authorize_path
-                %li= link_to "Login with VK", user_vkontakte_omniauth_authorize_path
-                %li= link_to "Login with Twitter", user_twitter_omniauth_authorize_path
+                %li= link_to t('facebook'), user_facebook_omniauth_authorize_path
+                %li= link_to t('vkontakte'), user_vkontakte_omniauth_authorize_path
+                %li= link_to t('twitter'), user_twitter_omniauth_authorize_path
           - else
             %li.dropdown
               %a.dropdown-toggle{"data-toggle" => "dropdown", href: "/"}
-                Information
+                %span=t('information')
                 %b.caret
               %ul.dropdown-menu{"ng-controller": "syka"}
                 %li
-                  %a{'ng-href'=> '#/{{userId}}/profile'} My profile
+                  %a{'ng-href'=> '#/{{userId}}/profile'}=t('profile')
                 %li
-                  %a{'ng-href'=> '#/sites/create'} Create site
-                %li= link_to "Logout", destroy_user_session_path, :method => :delete
+                  %a{'ng-href'=> '#/sites/create'}=t :create
+                %li= link_to t('signout'), destroy_user_session_path, :method => :delete
         %form.navbar-form.navbar-left{role: "search", "ng-controller": "syka"}
           .form-group
-            %input.form-control{placeholder: "Search", type:"text", 'ng-model': "search.text"}
-          %a.btn.btn-default{type: "button","ng-click":"searchSite();", 'ng-href'=> '#/sites'} Submit
+            %input.form-control{placeholder: t('search'), type:"text", 'ng-model': "search.text"}
+          %a.btn.btn-default{type: "button","ng-click":"searchSite();", 'ng-href'=> '#/sites'}=t('search')
         %ul.nav.navbar-nav.navbar
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-              Locale
+              %span=t('locale')
               %b.caret
             %ul.dropdown-menu
               %li
-                %a{href: "#"} English
+                %a{href: "#"}=link_to t('english'), :locale =>'en'
               %li
-                %a{href: "#"} Русский
+                %a{href: "#"}=link_to t('russian'), :locale =>'ru'
       .navbar-collapse
     %ui-view
 

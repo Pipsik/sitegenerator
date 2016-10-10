@@ -1,9 +1,15 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
+  before_action :set_locale
   protect_from_forgery with: :exception
   rescue_from CanCan::AccessDenied do |exception|
     render text: 'authError'
   end
 
+  def set_locale
+    I18n.default_locale = :ru
+    I18n.locale = current_user.try(:locale) || I18n.default_locale
+    unless params[:locale].nil?
+      I18n.locale=params[:locale]
+    end
+  end
 end
